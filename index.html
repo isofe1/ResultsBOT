@@ -507,11 +507,11 @@
     let db = null;        // will hold the JSON object
     let dbReady = false;
 
-    /* ── load data.json on startup ── */
+    /* ── load results.json on startup ── */
     (async function loadData() {
       showLoading('جاري تحميل قاعدة البيانات…');
       try {
-        const res = await fetch('./data.json');
+        const res = await fetch('./results.json');
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         db = await res.json();
         dbReady = true;
@@ -519,7 +519,7 @@
         document.getElementById('examInput').focus();
       } catch (e) {
         hideLoading();
-        showError('تعذّر تحميل البيانات. تأكد من وجود ملف data.json في نفس المجلد.');
+        showError('تعذّر تحميل البيانات. تأكد من وجود ملف results.json في نفس المجلد.');
         console.error(e);
       }
     })();
